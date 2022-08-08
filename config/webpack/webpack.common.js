@@ -1,16 +1,18 @@
+/* eslint-disable no-unused-vars */
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin'); // 模板
 const MiniCssExtractPlugin = require('mini-css-extract-plugin'); // css 代码打包分离
 const { Configuration } = require('webpack');
+const ESLintPlugin = require('eslint-webpack-plugin');
 
 const { isDevelopment, isProduction } = require('../scripts/env.js');
 
 const resolvePath = relativePath => path.resolve(__dirname, relativePath); // 根据相对路径获取绝对路径
 
 const getCssCommonLoaders = () => ([
-	isDevelopment ? 'style-loader' : MiniCssExtractPlugin.loader, 
+	isDevelopment ? 'style-loader' : MiniCssExtractPlugin.loader,
 	{
-		loader: "css-loader",
+		loader: 'css-loader',
 		options: {
 			modules: true,
 			sourceMap: isDevelopment,
@@ -62,14 +64,14 @@ module.exports = {
 		],
 	},
 	devServer: {
-    hot: true,
-    open: true
-  },
+		hot: true,
+		open: true,
+	},
 	resolve: {
 		extensions: ['.js', '.jsx', '.ts', '.tsx'],
-		// alias: {
-		// 	'@': resolvePath(__dirname, '../../src'),
-		// },
+		alias: {
+			'@': resolvePath(__dirname, '../../src'),
+		},
 	},
 	mode: 'development',
 	plugins: [
@@ -79,7 +81,8 @@ module.exports = {
 			filename: 'index.html',
 		}),
 		new MiniCssExtractPlugin({
-			filename: `[name].[hash:8].css`
+			filename: '[name].[hash:8].css',
 		}),
-	]
+		new ESLintPlugin(),
+	],
 };
