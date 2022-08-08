@@ -1,0 +1,8 @@
+# top-most EditorConfig file
+root = true
+ 
+# all files
+[*]
+end_of_line = lf
+indent_style = tab
+indent_size = 2
