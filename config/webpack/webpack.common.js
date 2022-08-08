@@ -9,24 +9,28 @@ const { isDevelopment, isProduction } = require('../scripts/env.js');
 
 const resolvePath = relativePath => path.resolve(__dirname, relativePath); // 根据相对路径获取绝对路径
 
-const getCssCommonLoaders = () => ([
-	isDevelopment ? 'style-loader' : MiniCssExtractPlugin.loader,
-	{
-		loader: 'css-loader',
-		options: {
-			modules: true,
-			sourceMap: isDevelopment,
+const getCssCommonLoaders = (options = {}) => {
+	const { isCssModule = true } = options;
+	console.log(options);
+	return [
+		isDevelopment ? 'style-loader' : MiniCssExtractPlugin.loader,
+		{
+			loader: 'css-loader',
+			options: {
+				modules: isCssModule,
+				sourceMap: isDevelopment,
+			},
 		},
-	},
-	'postcss-loader',
-]);
+		'postcss-loader',
+	];
+};
 
 /**
  * @type {Configuration}
  */
 module.exports = {
-	// entry: resolvePath('../../src/js/index.jsx'),
-	entry: resolvePath('../../src/ts/index.tsx'),
+	entry: resolvePath('../../src/js/index.jsx'),
+	// entry: resolvePath('../../src/ts/index.tsx'),
 	output: {
 		path: resolvePath('../../dist'),
 		filename: '[name].bundle.js',
@@ -35,8 +39,18 @@ module.exports = {
 		rules: [
 			{
 				test: /\.css$/,
+				exclude: [/node_module/],
 				use: [
 					...getCssCommonLoaders(),
+				],
+			},
+			{
+				test: /\.css$/,
+				exclude: [/src/],
+				use: [
+					...getCssCommonLoaders({
+						isCssModule: false,
+					}),
 				],
 			},
 			{
