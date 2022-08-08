@@ -2,7 +2,7 @@
 	"compilerOptions": {
     "baseUrl": ".",
     "outDir": "./dist",
-    "strict": true,
+    "strict": false,
     "forceConsistentCasingInFileNames": true,
     "moduleResolution": "node",
     "resolveJsonModule": true,
@@ -21,7 +21,10 @@
     }
   },
   "include": [
-    "./src/ts/**/*",
+    "src/**/*.ts",
+    "src/**/*.d.ts",
+    "src/**/*.tsx",
+    "test/**/*.ts",
   ],
   "exclude": ["./dist", "node_modules", "./config"]
 }
