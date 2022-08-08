@@ -20,6 +20,8 @@
       "@/*": ["./src/*"],
     }
   },
-  "include": ["./src/**/*", "./tests/unit/**/*"],
+  "include": [
+    "./src/ts/**/*",
+  ],
   "exclude": ["./dist", "node_modules", "./config"]
 }

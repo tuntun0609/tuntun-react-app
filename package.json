@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack --config ./config/webpack/webpack.prod.js",
-    "dev": "webpack-dev-server --config ./config/webpack/webpack.common.js"
+    "build": "cross-env NODE_ENV=production webpack --config ./config/webpack/webpack.prod.js",
+    "dev": "cross-env NODE_ENV=development webpack-dev-server --config ./config/webpack/webpack.common.js"
   },
   "repository": {
     "type": "git",

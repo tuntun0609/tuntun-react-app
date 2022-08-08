@@ -1,20 +1,23 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin'); // 模板
 const MiniCssExtractPlugin = require('mini-css-extract-plugin'); // css 代码打包分离
-const { Configuration } = require('webpack')
+const { Configuration } = require('webpack');
+
+const { isDevelopment, isProduction } = require('../scripts/env.js');
 
 const resolvePath = relativePath => path.resolve(__dirname, relativePath); // 根据相对路径获取绝对路径
 
-const cssCommonLoaders = [
-	MiniCssExtractPlugin.loader,
+const getCssCommonLoaders = () => ([
+	isDevelopment ? 'style-loader' : MiniCssExtractPlugin.loader, 
 	{
 		loader: "css-loader",
 		options: {
 			modules: true,
+			sourceMap: isDevelopment,
 		},
 	},
 	'postcss-loader',
-]
+]);
 
 /**
  * @type {Configuration}
@@ -31,20 +34,20 @@ module.exports = {
 			{
 				test: /\.css$/,
 				use: [
-					...cssCommonLoaders,
+					...getCssCommonLoaders(),
 				],
 			},
 			{
 				test: /\.less$/,
 				use: [
-					...cssCommonLoaders,
+					...getCssCommonLoaders(),
 					'less-loader',
 				],
 			},
 			{
 				test: /\.(scss|sass)$/,
 				use: [
-					...cssCommonLoaders,
+					...getCssCommonLoaders(),
 					'sass-loader',
 				],
 			},
@@ -60,7 +63,7 @@ module.exports = {
 	},
 	devServer: {
     hot: true,
-    // open: true
+    open: true
   },
 	resolve: {
 		extensions: ['.js', '.jsx', '.ts', '.tsx'],
