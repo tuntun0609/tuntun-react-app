@@ -5,11 +5,23 @@ const { Configuration } = require('webpack')
 
 const resolvePath = relativePath => path.resolve(__dirname, relativePath); // 根据相对路径获取绝对路径
 
+const cssCommonLoaders = [
+	MiniCssExtractPlugin.loader,
+	{
+		loader: "css-loader",
+		options: {
+			modules: true,
+		},
+	},
+	'postcss-loader',
+]
+
 /**
  * @type {Configuration}
  */
 module.exports = {
-	entry: resolvePath('../../src/js/index.jsx'),
+	// entry: resolvePath('../../src/js/index.jsx'),
+	entry: resolvePath('../../src/ts/index.tsx'),
 	output: {
 		path: resolvePath('../../dist'),
 		filename: '[name].bundle.js',
@@ -19,41 +31,20 @@ module.exports = {
 			{
 				test: /\.css$/,
 				use: [
-					MiniCssExtractPlugin.loader,
-					{
-						loader: "css-loader",
-						options: {
-							modules: true,
-						},
-					},
-					'postcss-loader',
+					...cssCommonLoaders,
 				],
 			},
 			{
 				test: /\.less$/,
 				use: [
-					MiniCssExtractPlugin.loader,
-					{
-						loader: "css-loader",
-						options: {
-							modules: true,
-						},
-					},
-					'postcss-loader',
+					...cssCommonLoaders,
 					'less-loader',
 				],
 			},
 			{
 				test: /\.(scss|sass)$/,
 				use: [
-					MiniCssExtractPlugin.loader,
-					{
-						loader: "css-loader",
-						options: {
-							modules: true,
-						},
-					},
-					'postcss-loader',
+					...cssCommonLoaders,
 					'sass-loader',
 				],
 			},

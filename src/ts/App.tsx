@@ -1,8 +1,11 @@
 import React from "react";
+import style from './App.scss';
 
 const App = () => {
 	return (
-		<div>app</div>
+		<div
+			className={style.textColor}
+		>tun-react-app</div>
 	)
 }
 
