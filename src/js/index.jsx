@@ -5,7 +5,7 @@ import 'antd/dist/antd.css';
 import moment from 'moment';
 import 'moment/locale/zh-cn';
 
-import store from './store/';
+import store from './store';
 import App from './App';
 
 moment.locale('zh-cn');

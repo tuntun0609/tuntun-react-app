@@ -2,10 +2,10 @@
   "name": "tuntun-react-app",
   "version": "1.0.0",
   "description": "自用react脚手架",
-  "main": "index.js",
+  "main": "./src/js/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "cross-env NODE_ENV=production webpack --config ./config/webpack/webpack.prod.js",
+    "build": "cross-env NODE_ENV=production webpack --config ./config/webpack/webpack.common.js",
     "dev": "cross-env NODE_ENV=development webpack-dev-server --config ./config/webpack/webpack.common.js"
   },
   "repository": {
