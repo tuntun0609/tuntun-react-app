@@ -4,6 +4,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin'); // 模板
 const MiniCssExtractPlugin = require('mini-css-extract-plugin'); // css 代码打包分离
 const { Configuration } = require('webpack');
 const ESLintPlugin = require('eslint-webpack-plugin');
+const WebpackBar = require('webpackbar');
 
 const { isDevelopment, isProduction } = require('../scripts/env.js');
 
@@ -98,5 +99,6 @@ module.exports = {
 			filename: '[name].[hash:8].css',
 		}),
 		new ESLintPlugin(),
+		new WebpackBar(),
 	],
 };
