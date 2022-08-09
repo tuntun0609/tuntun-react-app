@@ -11,7 +11,6 @@ const resolvePath = relativePath => path.resolve(__dirname, relativePath); // ца
 
 const getCssCommonLoaders = (options = {}) => {
 	const { isCssModule = true } = options;
-	console.log(options);
 	return [
 		isDevelopment ? 'style-loader' : MiniCssExtractPlugin.loader,
 		{

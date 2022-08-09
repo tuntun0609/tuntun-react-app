@@ -8,6 +8,8 @@
 - [x] less
 - [x] scss
 - [ ] redux
+  - [x] js
+  - [ ] ts
 - [ ] react-router
 - [ ] eslint
 - [x] antd

@@ -8,15 +8,15 @@ module.exports = {
 		'eslint:recommended',
 		'plugin:react/recommended',
 		'plugin:react-hooks/recommended',
-		'plugin:compat/recommended',
+		// 'plugin:compat/recommended',
 		// 'plugin:jest/recommended',
 		'plugin:import/typescript',
 		'plugin:jsx-a11y/recommended',
 	],
 	// setting: {
 	// 	react: {
-  //     version: 'detect',
-  //   },
+	//     version: 'detect',
+	//   },
 	// },
 	plugins: [
 		'react',
