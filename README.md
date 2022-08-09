@@ -16,3 +16,4 @@
 - [ ] mock
 - [ ] webpack打包优化
 - [ ] 增加测试
+- [ ] githook（husky）
