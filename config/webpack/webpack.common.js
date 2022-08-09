@@ -92,6 +92,7 @@ module.exports = {
 			title: 'react app',
 			template: resolvePath('../../public/index.html'),
 			filename: 'index.html',
+			favicon: resolvePath('../../public/favicon.ico'),
 		}),
 		new MiniCssExtractPlugin({
 			filename: '[name].[hash:8].css',
