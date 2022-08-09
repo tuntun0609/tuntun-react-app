@@ -29,6 +29,7 @@ specifiers:
   eslint-plugin-react-hooks: ^4.6.0
   eslint-webpack-plugin: ^3.2.0
   html-webpack-plugin: ^5.5.0
+  husky: ^8.0.1
   less: ^4.1.3
   less-loader: ^11.0.0
   mini-css-extract-plugin: ^2.6.1
@@ -89,6 +90,7 @@ devDependencies:
   eslint-plugin-react-hooks: 4.6.0_eslint@8.21.0
   eslint-webpack-plugin: 3.2.0_u2suxbtqimpjcabkd5w2ufy4qm
   html-webpack-plugin: 5.5.0_webpack@5.74.0
+  husky: 8.0.1
   less: 4.1.3
   less-loader: 11.0.0_less@4.1.3+webpack@5.74.0
   mini-css-extract-plugin: 2.6.1_webpack@5.74.0
@@ -4279,6 +4281,12 @@ packages:
     resolution: {integrity: sha512-Fl70vYtsAFb/C06PTS9dZBo7ihau+Tu/DNCk/OyHhea07S+aeMWpFFkUaXRa8fI+ScZbEI8dfSxwY7gxZ9SAVQ==}
     dependencies:
       ms: 2.1.3
+    dev: true
+
+  /husky/8.0.1:
+    resolution: {integrity: sha512-xs7/chUH/CKdOCs7Zy0Aev9e/dKOMZf3K1Az1nar3tzlv0jfqnYtu235bstsWTmXOR0EfINrPa97yy4Lz6RiKw==}
+    engines: {node: '>=14'}
+    hasBin: true
     dev: true
 
   /iconv-lite/0.4.24:
