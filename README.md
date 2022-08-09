@@ -18,3 +18,4 @@
 - [ ] 增加测试
 - [x] githook（husky）
 - [x] moment.js
+- [x] lodash
