@@ -26,7 +26,7 @@
 
 ```scss
 .text-color {
-	color: purple;
+  color: purple;
 }
 ```
 
