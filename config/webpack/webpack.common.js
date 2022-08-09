@@ -17,7 +17,10 @@ const getCssCommonLoaders = (options = {}) => {
 		{
 			loader: 'css-loader',
 			options: {
-				modules: isCssModule,
+				modules: {
+					auto: isCssModule ? undefined : false,
+					exportLocalsConvention: 'dashesOnly',
+				},
 				sourceMap: isDevelopment,
 			},
 		},
