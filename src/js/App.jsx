@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { Button } from 'antd';
 
 import style from './App.scss';
-import { decrement, increment } from './store/counterSlice';
+import { decrement, increment } from './store/slices/counterSlice';
 
 const App = () => {
 	const count = useSelector(state => state.counter.value);

@@ -45,6 +45,7 @@ specifiers:
   style-loader: ^3.3.1
   ts-loader: ^9.3.1
   typescript: ^4.7.4
+  url-loader: ^4.1.1
   webpack: ^5.74.0
   webpack-cli: ^4.10.0
   webpack-dev-server: ^4.9.3
@@ -98,6 +99,7 @@ devDependencies:
   style-loader: 3.3.1_webpack@5.74.0
   ts-loader: 9.3.1_xnp4kzegbjokq62cajex2ovgkm
   typescript: 4.7.4
+  url-loader: 4.1.1_webpack@5.74.0
   webpack: 5.74.0_webpack-cli@4.10.0
   webpack-cli: 4.10.0_foudhxygz4mdqapuaanowzkgwm
   webpack-dev-server: 4.9.3_5v66e2inugklgvlh4huuavolfq
@@ -7411,6 +7413,22 @@ packages:
     resolution: {integrity: sha512-7rKUyy33Q1yc98pQ1DAmLtwX109F7TIfWlW1Ydo8Wl1ii1SeHieeh0HHfPeL2fMXK6z0s8ecKs9frCuLJvndBg==}
     dependencies:
       punycode: 2.1.1
+    dev: true
+
+  /url-loader/4.1.1_webpack@5.74.0:
+    resolution: {integrity: sha512-3BTV812+AVHHOJQO8O5MkWgZ5aosP7GnROJwvzLS9hWDj00lZ6Z0wNak423Lp9PBZN05N+Jk/N5Si8jRAlGyWA==}
+    engines: {node: '>= 10.13.0'}
+    peerDependencies:
+      file-loader: '*'
+      webpack: ^4.0.0 || ^5.0.0
+    peerDependenciesMeta:
+      file-loader:
+        optional: true
+    dependencies:
+      loader-utils: 2.0.2
+      mime-types: 2.1.35
+      schema-utils: 3.1.1
+      webpack: 5.74.0_webpack-cli@4.10.0
     dev: true
 
   /use-sync-external-store/1.2.0_react@18.2.0:

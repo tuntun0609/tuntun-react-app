@@ -8,8 +8,7 @@ const ESLintPlugin = require('eslint-webpack-plugin');
 const WebpackBar = require('webpackbar');
 
 const { isDevelopment, isProduction } = require('../scripts/env.js');
-
-const resolvePath = relativePath => path.resolve(__dirname, relativePath); // 根据相对路径获取绝对路径
+const { resolvePath } = require('../scripts/path');
 
 const getCssCommonLoaders = (options = {}) => {
 	const { isCssModule = true } = options;
@@ -76,11 +75,19 @@ module.exports = {
 				test: /\.(ts|tsx)/,
 				use: 'ts-loader',
 			},
+			{
+				test: /\.(jpg|png|gif|svg|ico$)/,
+				use: [
+					{
+						loader: 'url-loader',
+						options: {
+							limit: 22228,
+							outputPath: 'image',
+						},
+					},
+				],
+			},
 		],
-	},
-	devServer: {
-		hot: true,
-		open: true,
 	},
 	resolve: {
 		extensions: ['.js', '.jsx', '.ts', '.tsx'],
@@ -88,18 +95,9 @@ module.exports = {
 			'@': resolvePath(__dirname, '../../src'),
 		},
 	},
-	mode: 'development',
+	mode: isDevelopment ? 'development' : 'production',
 	plugins: [
 		new CleanWebpackPlugin(),
-		new HtmlWebpackPlugin({
-			title: 'react app',
-			template: resolvePath('../../public/index.html'),
-			filename: 'index.html',
-			favicon: resolvePath('../../public/favicon.ico'),
-		}),
-		new MiniCssExtractPlugin({
-			filename: '[name].[hash:8].css',
-		}),
 		new ESLintPlugin(),
 		new WebpackBar(),
 	],
