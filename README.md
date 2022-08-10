@@ -10,8 +10,8 @@
 - [ ] redux
   - [x] js
   - [ ] ts
-- [ ] react-router
-- [ ] eslint
+- [x] react-router
+- [x] eslint(未完全完成tsx部分)
 - [x] antd
 - [ ] mock
 - [ ] webpack打包优化
