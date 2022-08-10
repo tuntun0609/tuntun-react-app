@@ -1,5 +1,10 @@
+export const URLS = {
+	DEV: '',
+	PROD: 'xxx.xxx.xxx',
+};
+
 //对外提供的服务地址，根据业务配置
-export const BASE_URL = process.env.NODE_ENV === 'development' ? '' : 'xxx.xxx.xxx';
+export const BASE_URL = process.env.NODE_ENV === 'development' ? URLS.DEV : URLS.PROD;
 
 // 可自行配置
 export const HTTP_CODE = {
