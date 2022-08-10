@@ -19,6 +19,10 @@
 - [x] githook（使用husky）
 - [x] moment.js
 - [x] lodash
+- [x] axios
+  - [x] axios本体
+  - [x] axios封装（封装了拦截器、get、post方法）
+
 
 ## 一些特性
 
