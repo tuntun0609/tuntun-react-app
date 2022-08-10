@@ -37,6 +37,7 @@ module.exports = {
 	output: {
 		path: resolvePath('../../dist'),
 		filename: '[name].bundle.js',
+		assetModuleFilename: 'images/[hash][ext][query]',
 	},
 	module: {
 		rules: [
@@ -79,26 +80,18 @@ module.exports = {
 				use: 'ts-loader',
 			},
 			{
-				test: /\.(jpg|png|gif|svg|ico$)/,
-				use: [
-					{
-						loader: 'url-loader',
-						options: {
-							limit: 22228,
-							outputPath: 'image',
-						},
-					},
-				],
+				test: /\.(?:ico|gif|png|jpg|jpeg|webp|svg)$/i,
+				type: 'asset',
 			},
 		],
 	},
 	resolve: {
 		extensions: ['.js', '.jsx', '.ts', '.tsx'],
 		alias: {
-			'@': resolvePath(__dirname, '../../src'),
+			'@': resolvePath('../../src'),
+			public: resolvePath('../../public'),
 		},
 	},
-	mode: isDevelopment ? 'development' : 'production',
 	plugins: [
 		new CleanWebpackPlugin(),
 		new ESLintPlugin(),

@@ -36,3 +36,14 @@ import style from './App.scss';
 <div className={style.textColor}></div>
 ```
 
+- 路径别名
+
+| 别名   | 指向           |
+| ------ | -------------- |
+| @      | 指向src目录    |
+| public | 指向public目录 |
+
+```jsx
+import favicon from 'public/favicon.ico';
+```
+

@@ -4,6 +4,7 @@ import { Button } from 'antd';
 
 import style from './App.scss';
 import { decrement, increment } from './store/slices/counterSlice';
+import favicon from 'public/favicon.ico';
 
 const App = () => {
 	const count = useSelector(state => state.counter.value);
@@ -25,6 +26,7 @@ const App = () => {
 				decrement
 			</Button>
 			tun-react-app js {count}
+			<img alt='tun-favicon' src={favicon}></img>
 		</div>
 	);
 };
