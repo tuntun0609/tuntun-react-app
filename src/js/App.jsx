@@ -4,8 +4,7 @@ import { Routes, Route } from 'react-router-dom';
 import { Button } from 'antd';
 
 import style from './App.scss';
-import { About } from '@/js/pages/About/About';
-import { Home } from '@/js/pages/Home/Home';
+import { About, Home } from '@/js/pages';
 import { decrement, increment } from './store/slices/counterSlice';
 import favicon from 'public/favicon.ico';
 
