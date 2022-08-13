@@ -19,7 +19,7 @@ const getCssCommonLoaders = (options = {}) => {
 			options: {
 				modules: {
 					auto: isCssModule ? undefined : false,
-					exportLocalsConvention: 'dashesOnly',
+					exportLocalsConvention: 'dashes',
 				},
 				sourceMap: isDevelopment,
 			},
