@@ -7,7 +7,9 @@ const WebpackBar = require('webpackbar');
 
 const { isDevelopment, isProduction } = require('../scripts/env.js');
 const { resolvePath } = require('../scripts/path');
+const theme = require('../../src/js/theme');
 
+// 默认开启css module
 const getCssCommonLoaders = (options = {}) => {
 	const { isCssModule = true } = options;
 	return [
@@ -57,9 +59,39 @@ module.exports = {
 			},
 			{
 				test: /\.less$/,
+				exclude: [/src/],
 				use: [
-					...getCssCommonLoaders(),
-					'less-loader',
+					...getCssCommonLoaders({
+						isCssModule: false,
+					}),
+					{
+						loader: 'less-loader',
+						options: {
+							lessOptions: {
+								modifyVars: {
+									...theme,
+								},
+								javascriptEnabled: true,
+							},
+						},
+					},
+				],
+			},
+			{
+				test: /\.less$/,
+				exclude: [/node_module/],
+				use: [
+					...getCssCommonLoaders({
+						isCssModule: false,
+					}),
+					{
+						loader: 'less-loader',
+						options: {
+							lessOptions: {
+								javascriptEnabled: true,
+							},
+						},
+					},
 				],
 			},
 			{
@@ -71,10 +103,12 @@ module.exports = {
 			},
 			{
 				test: /\.(js|jsx)/,
+				exclude: /node_modules/,
 				use: 'babel-loader',
 			},
 			{
 				test: /\.(ts|tsx)/,
+				exclude: /node_modules/,
 				use: 'ts-loader',
 			},
 			{

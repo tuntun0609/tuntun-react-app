@@ -4,7 +4,7 @@ import { Provider } from 'react-redux';
 import {
 	HashRouter,
 } from 'react-router-dom';
-import 'antd/dist/antd.css';
+import 'antd/dist/antd.less';
 import moment from 'moment';
 import 'moment/locale/zh-cn';
 
