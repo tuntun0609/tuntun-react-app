@@ -1,6 +1,4 @@
 /* eslint-disable no-unused-vars */
-const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin'); // 模板
 const MiniCssExtractPlugin = require('mini-css-extract-plugin'); // css 代码打包分离
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const { Configuration } = require('webpack');

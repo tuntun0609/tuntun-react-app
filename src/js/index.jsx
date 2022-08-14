@@ -2,7 +2,7 @@ import React from 'react';
 import { createRoot } from 'react-dom/client';
 import { Provider } from 'react-redux';
 import {
-	BrowserRouter,
+	HashRouter,
 } from 'react-router-dom';
 import 'antd/dist/antd.css';
 import moment from 'moment';
@@ -18,9 +18,10 @@ const root = createRoot(container); // createRoot(container!) if you use TypeScr
 root.render(
 	<React.StrictMode>
 		<Provider store={store}>
-			<BrowserRouter>
+			{/* 推荐使用BrowserRouter，因为演示页部署到了vercel，所以这里使用HashRouter解决404问题 */}
+			<HashRouter>
 				<App />
-			</BrowserRouter>
+			</HashRouter>
 		</Provider>
 	</React.StrictMode>,
 );
