@@ -1,4 +1,3 @@
-const webpack = require('webpack');
 const { merge } = require('webpack-merge');
 const HtmlWebpackPlugin = require('html-webpack-plugin'); // 模板
 
@@ -14,16 +13,15 @@ module.exports = merge(common, {
 	},
 	devServer: {
 		historyApiFallback: true,
-		proxy: {
-			'/api': 'http://localhost:8000',
-		},
+		// proxy: {
+		// 	'/api': 'http://localhost:8000',
+		// },
 		open: true,
 		compress: true,
 		hot: true,
 		port: 8000,
 	},
 	plugins: [
-		new webpack.HotModuleReplacementPlugin(),
 		new HtmlWebpackPlugin({
 			title: 'tun react app',
 			template: resolvePath('../../public/index.html'),
@@ -31,4 +29,12 @@ module.exports = merge(common, {
 			favicon: resolvePath('../../public/favicon.ico'),
 		}),
 	],
+	optimization: {
+		removeAvailableModules: false,
+		removeEmptyChunks: false,
+		splitChunks: false,
+		minimize: false,
+		concatenateModules: false,
+		usedExports: false,
+	},
 });

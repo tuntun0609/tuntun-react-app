@@ -24,4 +24,24 @@ module.exports = merge(common, {
 			disableReactDevtools: true,
 		}),
 	],
+	optimization: {
+		splitChunks: {
+			// chunks: 'all',
+			minChunks: 2,
+			cacheGroups: {
+				default: {
+					idHint: '',
+					reuseExistingChunk: true,
+					minChunks: 2,
+					priority: -20,
+				},
+				defaultVendors: {
+					idHint: 'vendors',
+					reuseExistingChunk: true,
+					test: /[\\/]node_modules[\\/]/i,
+					priority: -10,
+				},
+			},
+		},
+	},
 });
