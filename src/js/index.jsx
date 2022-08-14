@@ -10,8 +10,13 @@ import 'moment/locale/zh-cn';
 
 import store from './store';
 import App from './App';
+import { setStateToStorage } from './utils';
 
 moment.locale('zh-cn');
+
+store.subscribe(() => {
+	setStateToStorage(store.getState());
+});
 
 const container = document.getElementById('root');
 const root = createRoot(container); // createRoot(container!) if you use TypeScript
