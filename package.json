@@ -7,6 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "cross-env NODE_ENV=production webpack --config ./config/webpack/webpack.prod.js",
     "dev": "cross-env NODE_ENV=development webpack-dev-server --config ./config/webpack/webpack.dev.js",
+    "lint": "eslint --ext .js --ext .jsx src/",
     "prepare": "husky install",
     "uninstallHusky": "npm uninstall husky && git config --unset core.hooksPath"
   },

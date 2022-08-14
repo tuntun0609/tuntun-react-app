@@ -1,5 +1,9 @@
-#!/usr/bin/env sh
-. "$(dirname -- "$0")/_/husky.sh"
+#!/usr/bin/env node
+const childProcess = require('child_process');
 
-#npm test
-echo "pre-commit"
+try {
+  childProcess.execSync('npm run lint');
+} catch (error) {
+  console.log(error.stdout.toString());
+  process.exit(1);
+}
