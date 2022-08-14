@@ -121,7 +121,7 @@ module.exports = {
 		extensions: ['.js', '.jsx', '.ts', '.tsx'],
 		alias: {
 			'@': resolvePath('../../src'),
-			public: resolvePath('../../public'),
+			'@public': resolvePath('../../public'),
 		},
 	},
 	plugins: [

@@ -6,7 +6,7 @@ import { Button } from 'antd';
 import style from './App.scss';
 import { About, Home, NotFind } from '@/js/pages';
 import { decrement, increment } from './store/slices/counterSlice';
-import logo from 'public/tuntun.jpg';
+import logo from '@public/tuntun.jpg';
 
 const App = () => {
 	const count = useSelector(state => state.counter.value);
