@@ -7,7 +7,9 @@ import {
 import 'antd/dist/antd.less';
 import moment from 'moment';
 import 'moment/locale/zh-cn';
+import { ConfigProvider } from 'antd';
 
+import './react-i18next-config';
 import store from './store';
 import App from './App';
 import { setStateToStorage } from './utils';
@@ -24,7 +26,9 @@ root.render(
 	<React.StrictMode>
 		<Provider store={store}>
 			<BrowserRouter>
-				<App />
+				<ConfigProvider>
+					<App />
+				</ConfigProvider>
 			</BrowserRouter>
 		</Provider>
 	</React.StrictMode>,

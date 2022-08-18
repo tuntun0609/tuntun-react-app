@@ -1,17 +1,41 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Routes, Route, useNavigate } from 'react-router-dom';
-import { Button } from 'antd';
+import { Button, Select } from 'antd';
+import { useTranslation } from 'react-i18next';
 
 import style from './App.scss';
-import { About, Home, NotFind } from '@/js/pages';
 import { decrement, increment } from './store/slices/counterSlice';
+import { I18N_STORAGE_NAME, DEFAULT_LANGUAGE } from './react-i18next-config';
+import { resources } from '@public/locales';
+import { About, Home, NotFind } from '@/js/pages';
 import logo from '@public/tuntun.jpg';
 
+const { Option } = Select;
+
 const App = () => {
+	const [lng, setLng] = useState(DEFAULT_LANGUAGE);
 	const count = useSelector(state => state.counter.value);
 	const navigate = useNavigate();
 	const dispatch = useDispatch();
+	const { t, i18n } = useTranslation();
+
+	const changeLanguage = (e) => {
+		i18n.changeLanguage(e);
+		setLng(e);
+	};
+
+	useEffect(() => {
+		try {
+			const name = localStorage.getItem(I18N_STORAGE_NAME);
+			if (name && name in resources) {
+				setLng(name);
+			}
+		} catch (error) {
+			console.error(error);
+		}
+	}, []);
+
 	return (
 		<div
 			className={style.app}
@@ -27,7 +51,7 @@ const App = () => {
 							dispatch(increment());
 						}}
 					>
-						increment
+						{t('increment')}
 					</Button>
 					<Button
 						type="primary"
@@ -35,7 +59,7 @@ const App = () => {
 							dispatch(decrement());
 						}}
 					>
-						decrement
+						{t('decrement')}
 					</Button>
 				</div>
 				<span>count: {count}</span>
@@ -48,7 +72,7 @@ const App = () => {
 						navigate('/home');
 					}}
 				>
-					home
+					{t('home')}
 				</Button>
 				<Button
 					type="primary"
@@ -56,15 +80,21 @@ const App = () => {
 						navigate('/about');
 					}}
 				>
-					about
+					{t('about')}
 				</Button>
 			</div>
-			<Routes>
-				<Route index element={<div>click router button</div>}></Route>
-				<Route path="/home" element={<Home />}></Route>
-				<Route path="/about" element={<About />}></Route>
-				<Route path="*" element={<NotFind />}></Route>
-			</Routes>
+			<div className={style.showRouter}>
+				<Routes>
+					<Route index element={<div>click router button</div>}></Route>
+					<Route path="/home" element={<Home />}></Route>
+					<Route path="/about" element={<About />}></Route>
+					<Route path="*" element={<NotFind />}></Route>
+				</Routes>
+			</div>
+			<Select defaultValue={DEFAULT_LANGUAGE} value={lng} style={{ width: 120 }} onChange={changeLanguage}>
+				<Option value="zh-CN">简中</Option>
+				<Option value="en">English</Option>
+			</Select>
 		</div>
 	);
 };
