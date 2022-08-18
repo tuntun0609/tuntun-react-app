@@ -1,5 +1,5 @@
-import cn from './zh-cn.json';
-import en from './en-us.json';
+import cn from './zh-cn';
+import en from './en-us';
 
 export const resources = {
 	'zh-CN': {
@@ -9,3 +9,14 @@ export const resources = {
 		translation: en,
 	},
 };
+
+export const lngOption = [
+	{
+		lng: 'zh-CN',
+		name: '简中',
+	},
+	{
+		lng: 'en',
+		name: 'English',
+	},
+];

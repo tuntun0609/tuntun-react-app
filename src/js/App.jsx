@@ -7,7 +7,7 @@ import { useTranslation } from 'react-i18next';
 import style from './App.scss';
 import { decrement, increment } from './store/slices/counterSlice';
 import { I18N_STORAGE_NAME, DEFAULT_LANGUAGE } from './react-i18next-config';
-import { resources } from '@public/locales';
+import { resources, lngOption } from '@public/locales';
 import { About, Home, NotFind } from '@/js/pages';
 import logo from '@public/tuntun.jpg';
 
@@ -85,15 +85,16 @@ const App = () => {
 			</div>
 			<div className={style.showRouter}>
 				<Routes>
-					<Route index element={<div>click router button</div>}></Route>
+					<Route index element={<div>{t('defaultRouterMsg')}</div>}></Route>
 					<Route path="/home" element={<Home />}></Route>
 					<Route path="/about" element={<About />}></Route>
 					<Route path="*" element={<NotFind />}></Route>
 				</Routes>
 			</div>
 			<Select defaultValue={DEFAULT_LANGUAGE} value={lng} style={{ width: 120 }} onChange={changeLanguage}>
-				<Option value="zh-CN">简中</Option>
-				<Option value="en">English</Option>
+				{
+					lngOption.map(item => (<Option key={item.lng} value={item.lng}>{item.name}</Option>))
+				}
 			</Select>
 		</div>
 	);

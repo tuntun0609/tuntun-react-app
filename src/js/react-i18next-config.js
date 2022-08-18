@@ -5,7 +5,9 @@ import LanguageDetector from 'i18next-browser-languagedetector';
 
 import { resources } from '@public/locales';
 
+// 在storage中的key名
 export const I18N_STORAGE_NAME = 'i18nextLng';
+// 默认语言
 export const DEFAULT_LANGUAGE = 'zh-CN';
 
 i18n.use(LanguageDetector)
@@ -17,7 +19,6 @@ i18n.use(LanguageDetector)
 			order: ['localStorage', 'navigator'],
 			caches: ['localStorage'],
 			lookupLocalStorage: I18N_STORAGE_NAME,
-			lookupFromSubdomainIndex: 0,
 		},
 	});
 
