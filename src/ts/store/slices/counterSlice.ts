@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { getStateFromStorage } from '@/js/utils';
+import { getStateFromStorage } from '@/utils';
 
 export const counterSlice = createSlice({
 	name: 'counter',

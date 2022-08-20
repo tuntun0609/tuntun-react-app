@@ -12,7 +12,7 @@ import { ConfigProvider } from 'antd';
 import './react-i18next-config';
 import store from './store';
 import App from './App';
-import { setStateToStorage } from './utils';
+import { setStateToStorage } from '@/utils';
 
 moment.locale('zh-cn');
 

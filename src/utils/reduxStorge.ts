@@ -1,6 +1,7 @@
 export const getStateFromStorage = () => {
+	const STATE = 'state';
 	try {
-		const stateStorage = localStorage.getItem('state');
+		const stateStorage = localStorage.getItem(STATE);
 		if (stateStorage === null) {
 			return {};
 		}
@@ -10,7 +11,9 @@ export const getStateFromStorage = () => {
 	}
 };
 
-export const setStateToStorage = (state) => {
+export const setStateToStorage = (state: {
+	[index: string]: any;
+}) => {
 	try {
 		const stateData = JSON.stringify(state);
 		localStorage.setItem('state', stateData);

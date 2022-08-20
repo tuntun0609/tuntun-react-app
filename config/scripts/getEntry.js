@@ -5,9 +5,9 @@ const getEntry = () => {
 	// console.log(process.env.language);
 	const lng = (process.env.language).toLowerCase() ?? 'js';
 	if (lng === 'ts' || lng === 'typescript') {
-		return resolvePath('../../src/ts/index.tsx');
+		return resolvePath('../../src/ts/index');
 	}
-	return resolvePath('../../src/js/index.jsx');
+	return resolvePath('../../src/js/index');
 };
 
 module.exports = {
