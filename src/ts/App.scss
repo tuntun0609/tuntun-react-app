@@ -1,3 +1,53 @@
+$tunPurple: #8b4dff;
+
+.app {
+	min-height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+}
+
+.logo {
+	width: 25vh;
+	height: 25vh;
+	border-radius: 10px;
+	box-shadow: rgba(0, 147, 223, 0.3) 0px 3px 8px;
+}
+
+@keyframes breathe {
+	0% {
+		// box-shadow: 0px 0px 5px rgba(0, 147, 223, 0.4);
+	}
+
+	100% {
+		box-shadow: 0px 0px 10px $tunPurple;
+	}
+}
+
+.title {
+	font-size: 32px;
+	margin: 20px 0;
+	color: $tunPurple;
+	font-weight: bold;
+}
+
+.redux-context {
+	margin-bottom: 20px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.button-increment {
+	margin-right: 10px;
+}
+
+.show-router {
+	margin-bottom: 20px;
+}
+
 .text-color {
-	color: purple;
+	color: $tunPurple;
 }
