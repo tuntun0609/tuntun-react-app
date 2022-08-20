@@ -9,7 +9,7 @@ const WebpackBar = require('webpackbar');
 const { isDevelopment } = require('../scripts/env.js');
 const { resolvePath } = require('../scripts/path');
 const { getEntry } = require('../scripts/getEntry');
-const theme = require('../../src/js/theme');
+const theme = require('../../src/theme');
 
 // 默认开启css module
 const getCssCommonLoaders = (options = {}) => {
