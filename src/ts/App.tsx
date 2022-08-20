@@ -1,14 +1,12 @@
-import React from "react";
+import React from 'react';
 import style from './App.scss';
 
-const App: React.FC = () => {
-	return (
-		<div
-			className={style.textColor}
-		>
+const App: React.FC = () => (
+	<div
+		className={style.textColor}
+	>
 			tun-react-app ts
-		</div>
-	)
-}
+	</div>
+);
 
 export default App;

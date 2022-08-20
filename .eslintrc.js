@@ -4,27 +4,30 @@ module.exports = {
 		node: true,
 		es6: true,
 	},
+	parser: '@typescript-eslint/parser',
 	extends: [
 		'eslint:recommended',
+		'plugin:@typescript-eslint/recommended',
 		'plugin:react/recommended',
 		'plugin:react-hooks/recommended',
-		// 'plugin:compat/recommended',
-		// 'plugin:jest/recommended',
 		'plugin:import/typescript',
-		'plugin:jsx-a11y/recommended',
 	],
-	// setting: {
-	// 	react: {
-	//     version: 'detect',
-	//   },
-	// },
 	plugins: [
 		'react',
-		'jsx-a11y',
+		'@typescript-eslint',
 	],
+	settings: {
+		'react': {
+			'pragma': 'React',
+			'version': 'detect',
+		},
+	},
 	parserOptions: {
 		ecmaVersion: 'latest',
 		sourceType: 'module',
+		ecmaFeatures: {
+			jsx: true,
+		},
 	},
 	rules: {
 		'no-unused-vars': [
@@ -102,5 +105,6 @@ module.exports = {
 		'prefer-const': ['warn'],
 		'prefer-destructuring': ['warn'],
 		'no-whitespace-before-property': ['error'],
+		'@typescript-eslint/no-var-requires': ['off'],
 	},
 };

@@ -5,8 +5,12 @@
   "main": "./src/js/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "cross-env NODE_ENV=production webpack --config ./config/webpack/webpack.prod.js",
-    "dev": "cross-env NODE_ENV=development webpack-dev-server --config ./config/webpack/webpack.dev.js",
+    "build": "npm run build-js",
+    "build-js": "cross-env NODE_ENV=production language=js webpack --config ./config/webpack/webpack.prod.js",
+    "build-ts": "cross-env NODE_ENV=production language=ts webpack --config ./config/webpack/webpack.prod.js",
+    "dev": "npm run dev-js",
+    "dev-js": "cross-env NODE_ENV=development language=js webpack-dev-server --config ./config/webpack/webpack.dev.js",
+    "dev-ts": "cross-env NODE_ENV=development language=ts webpack-dev-server --config ./config/webpack/webpack.dev.js",
     "lint": "eslint --ext .js --ext .jsx src/",
     "prepare": "husky install",
     "uninstallHusky": "npm uninstall husky && git config --unset core.hooksPath"
@@ -56,7 +60,6 @@
     "eslint-plugin-babel": "^5.3.1",
     "eslint-plugin-import": "^2.26.0",
     "eslint-plugin-jest": "^26.8.0",
-    "eslint-plugin-jsx-a11y": "^6.6.1",
     "eslint-plugin-react": "^7.30.1",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-webpack-plugin": "^3.2.0",

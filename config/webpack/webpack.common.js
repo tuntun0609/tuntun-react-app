@@ -1,12 +1,14 @@
 /* eslint-disable no-unused-vars */
 const MiniCssExtractPlugin = require('mini-css-extract-plugin'); // css 代码打包分离
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const { Configuration } = require('webpack');
 const ESLintPlugin = require('eslint-webpack-plugin');
 const WebpackBar = require('webpackbar');
 
-const { isDevelopment, isProduction } = require('../scripts/env.js');
+const { isDevelopment } = require('../scripts/env.js');
 const { resolvePath } = require('../scripts/path');
+const { getEntry } = require('../scripts/getEntry');
 const theme = require('../../src/js/theme');
 
 // 默认开启css module
@@ -32,8 +34,7 @@ const getCssCommonLoaders = (options = {}) => {
  * @type {Configuration}
  */
 module.exports = {
-	entry: resolvePath('../../src/js/index.jsx'),
-	// entry: resolvePath('../../src/ts/index.tsx'),
+	entry: getEntry(),
 	output: {
 		path: resolvePath('../../dist'),
 		filename: '[name].bundle.js',
