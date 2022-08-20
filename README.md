@@ -9,11 +9,11 @@
 - [x] ts、tsx
 - [x] less
 - [x] scss
-- [ ] redux
+- [x] redux
   - [x] js
-  - [ ] ts
+  - [x] ts
 - [x] react-router
-- [x] eslint(未完全完成tsx部分)
+- [x] eslint
 - [x] antd
   - [x] antd自定义主题
 
@@ -58,7 +58,7 @@ import favicon from 'public/favicon.ico';
 
 - antd自定义主题
 
-在项目`src`下有`theme.js`（ts下为`theme.ts`）文件，可以在其中设置主题色，会直接改变`antd`的主题色
+在项目`src`下有`theme.js`文件，可以在其中设置主题色，会直接改变`antd`的主题色
 
 具体如何设置参考[antd定制主题](https://ant.design/docs/react/customize-theme-cn#Ant-Design-%E7%9A%84%E6%A0%B7%E5%BC%8F%E5%8F%98%E9%87%8F)
 
