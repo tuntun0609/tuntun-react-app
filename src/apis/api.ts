@@ -1,5 +1,5 @@
 /* eslint-disable arrow-body-style */
-import axios from 'axios';
+import axios, { AxiosResponse, AxiosRequestConfig } from 'axios';
 import { message } from 'antd';
 
 import { BASE_URL, HTTP_CODE } from './config';
@@ -29,14 +29,13 @@ export const reqInterceptors = instance.interceptors.request.use(
 // 响应拦截器
 // response: https://www.axios-http.cn/docs/res_schema
 export const resInterceptors = instance.interceptors.response.use((response) => {
-	// 2xx 范围内的状态码都会触发该函数。
 	// 处理响应数据
 	// code here
 	return response;
-}, (error) => {
+}, (error: { response?: AxiosResponse<any, any> }) => {
 	if (error.response) {
 		// 根据请求失败的http状态码去给用户相应的提示
-		const tips = error.response.status in HTTP_CODE ? HTTP_CODE[error.response.status] : error.response.data.message;
+		const tips = error.response.status in HTTP_CODE ? HTTP_CODE[error.response.status as keyof typeof HTTP_CODE] : error.response.data.message;
 		message.error(tips);
 		// 可以根据业务不同编写不同的对应处理方法，比如登录失效的时候跳转登录页
 		// code here
@@ -47,7 +46,7 @@ export const resInterceptors = instance.interceptors.response.use((response) => 
 });
 
 // 统一封装get请求
-export const get = (url, params, config = {}) => new Promise((resolve, reject) => {
+export const get = (url: string, params?: object, config: AxiosRequestConfig = {}) => new Promise((resolve, reject) => {
 	instance({
 		method: 'get',
 		url,
@@ -61,7 +60,7 @@ export const get = (url, params, config = {}) => new Promise((resolve, reject) =
 });
 
 // 统一封装post请求
-export const post = (url, data, config = {}) => new Promise((resolve, reject) => {
+export const post = (url: string, data: object, config: AxiosRequestConfig = {}) => new Promise((resolve, reject) => {
 	instance({
 		method: 'post',
 		url,

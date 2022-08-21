@@ -1,13 +1,17 @@
-export const URLS = {
-	DEV: '',
-	PROD: 'xxx.xxx.xxx',
-};
+export const enum Urls {
+	DEV = '',
+	PROD = 'xxx.xxx.xxx',
+}
 
 //对外提供的服务地址，根据业务配置
-export const BASE_URL = process.env.NODE_ENV === 'development' ? URLS.DEV : URLS.PROD;
+export const BASE_URL = process.env.NODE_ENV === 'development' ? Urls.DEV : Urls.PROD;
+
+interface HttpCode {
+	[code: number]: string,
+}
 
 // 可自行配置
-export const HTTP_CODE = {
+export const HTTP_CODE: HttpCode = {
 	400: '请求参数错误',
 	401: '权限不足, 请重新登录',
 	403: '服务器拒绝本次访问',
