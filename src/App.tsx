@@ -6,28 +6,30 @@ import { useTranslation } from 'react-i18next';
 
 import style from './App.scss';
 import { decrement, increment } from './store/slices/counterSlice';
-import { I18N_STORAGE_NAME, DEFAULT_LANGUAGE } from './react-i18next-config';
-import { resources, lngOption } from '@public/locales';
-import { About, Home, NotFind } from '@/js/pages';
+import { I18N_STORAGE_NAME, DEFAULT_LANGUAGE } from './locales/config';
+import { resources, lngOption } from './locales';
+import { About, Home, NotFind } from './pages';
+import { storage } from './utils';
+
 import logo from '@public/tuntun.jpg';
 
 const { Option } = Select;
 
-const App = () => {
+const App: React.FC = () => {
 	const [lng, setLng] = useState(DEFAULT_LANGUAGE);
-	const count = useSelector(state => state.counter.value);
+	const count = useSelector((state: { counter: { value: number } }) => state.counter.value);
 	const navigate = useNavigate();
 	const dispatch = useDispatch();
 	const { t, i18n } = useTranslation();
 
-	const changeLanguage = (e) => {
+	const changeLanguage = (e: string) => {
 		i18n.changeLanguage(e);
 		setLng(e);
 	};
 
 	useEffect(() => {
 		try {
-			const name = localStorage.getItem(I18N_STORAGE_NAME);
+			const name = storage.get(I18N_STORAGE_NAME);
 			if (name && name in resources) {
 				setLng(name);
 			}

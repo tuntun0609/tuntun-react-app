@@ -3,7 +3,7 @@ import { initReactI18next } from 'react-i18next';
 //https://github.com/i18next/i18next-browser-languageDetector
 import LanguageDetector from 'i18next-browser-languagedetector';
 
-import { resources } from '@public/locales';
+import { resources } from '@/locales';
 
 // 在storage中的key名
 export const I18N_STORAGE_NAME = 'i18nextLng';

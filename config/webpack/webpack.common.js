@@ -8,7 +8,6 @@ const WebpackBar = require('webpackbar');
 
 const { isDevelopment } = require('../scripts/env.js');
 const { resolvePath } = require('../scripts/path');
-const { getEntry } = require('../scripts/getEntry');
 const theme = require('../../src/theme');
 
 // 默认开启css module
@@ -34,7 +33,7 @@ const getCssCommonLoaders = (options = {}) => {
  * @type {Configuration}
  */
 module.exports = {
-	entry: getEntry(),
+	entry: resolvePath('../../src/index'),
 	output: {
 		path: resolvePath('../../dist'),
 		filename: '[name].bundle.js',

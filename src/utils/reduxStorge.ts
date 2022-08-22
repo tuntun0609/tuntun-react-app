@@ -4,9 +4,6 @@ export const getStateFromStorage = () => {
 	const STATE = 'state';
 	try {
 		const stateStorage = storage.get(STATE);
-		if (stateStorage === undefined) {
-			return {};
-		}
 		return stateStorage;
 	} catch (error) {
 		return {};

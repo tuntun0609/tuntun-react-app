@@ -9,10 +9,10 @@ import moment from 'moment';
 import 'moment/locale/zh-cn';
 import { ConfigProvider } from 'antd';
 
-import './react-i18next-config';
+import './locales/config';
 import store from './store';
 import App from './App';
-import { setStateToStorage } from '@/utils';
+import { setStateToStorage } from './utils';
 
 moment.locale('zh-cn');
 
