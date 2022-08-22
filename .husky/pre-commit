@@ -2,6 +2,7 @@
 const childProcess = require('child_process');
 
 try {
+  console.log('eslint检查中...');
   childProcess.execSync('npm run lint');
 } catch (error) {
   console.log(error.stdout.toString());

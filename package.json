@@ -11,7 +11,7 @@
     "dev": "npm run dev-ts",
     "dev-js": "cross-env NODE_ENV=development language=js webpack-dev-server --config ./config/webpack/webpack.dev.js",
     "dev-ts": "cross-env NODE_ENV=development language=ts webpack-dev-server --config ./config/webpack/webpack.dev.js",
-    "lint": "eslint --ext .js --ext .jsx src/",
+    "lint": "eslint --ext .js --ext .jsx --ext .ts --ext .tsx src/",
     "prepare": "husky install",
     "uninstallHusky": "npm uninstall husky && git config --unset core.hooksPath"
   },
