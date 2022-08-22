@@ -9,14 +9,11 @@
 - [x] ts、tsx
 - [x] less
 - [x] scss
-- [x] redux
-  - [x] js
-  - [x] ts
+- [x] redux（封装了redux数据自动同步到`localStorage`功能）
 - [x] react-router
 - [x] eslint
 - [x] antd
   - [x] antd自定义主题
-
 - [x] 国际化i18n
 - [ ] mock
 - [ ] webpack打包优化
@@ -47,13 +44,13 @@ import style from './App.scss';
 
 - 路径别名
 
-| 别名   | 指向           |
-| ------ | -------------- |
-| @      | 指向src目录    |
-| public | 指向public目录 |
+| 别名    | 指向           |
+| ------- | -------------- |
+| @       | 指向src目录    |
+| @public | 指向public目录 |
 
 ```jsx
-import favicon from 'public/favicon.ico';
+import favicon from '@public/favicon.ico';
 ```
 
 - antd自定义主题
@@ -71,12 +68,12 @@ module.exports = {
 
 - 国际化
 
-在`public`路径下的`locales`编写对应语言翻译并导出。
+在`src`路径下的`locales`编写对应语言翻译并导出。
 
-之后在`locales`目录下的`index.js`中导入并在`resources`中添加，这个对象会被传给`i18n`的`resources`配置项，参考[Basic sample](https://www.i18next.com/overview/getting-started#basic-sample)。
+之后在`locales`目录下的`index.ts`中导入并在`resources`中添加，这个对象会被传给`i18n`的`resources`配置项，参考[Basic sample](https://www.i18next.com/overview/getting-started#basic-sample)。
 
 > 同文件中导出的`lngOption`是为了方便其他组件渲染而导出的，如不需要删除即可
 
-**react-i18next-confi.js**
+**config.js**
 
 使用了[i18next-browser-languageDetector](https://github.com/i18next/i18next-browser-languageDetector)中间件，使用了`localStorage`作为语言缓存（如果没有对应缓存选择浏览器的语言为默认语言，如果没有配置对应浏览器语言的翻译，则选择配置文件中的`DEFAULT_LANGUAGE`属性为默认语言）
