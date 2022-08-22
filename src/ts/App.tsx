@@ -9,6 +9,7 @@ import { decrement, increment } from './store/slices/counterSlice';
 import { I18N_STORAGE_NAME, DEFAULT_LANGUAGE } from './react-i18next-config';
 import { resources, lngOption } from '@public/locales';
 import { About, Home, NotFind } from '@/js/pages';
+import { storage } from '@/utils';
 import logo from '@public/tuntun.jpg';
 
 const { Option } = Select;
@@ -27,7 +28,7 @@ const App: React.FC = () => {
 
 	useEffect(() => {
 		try {
-			const name = localStorage.getItem(I18N_STORAGE_NAME);
+			const name = storage.get(I18N_STORAGE_NAME);
 			if (name && name in resources) {
 				setLng(name);
 			}

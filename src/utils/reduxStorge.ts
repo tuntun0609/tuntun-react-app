@@ -1,11 +1,13 @@
+import { storage } from './index';
+
 export const getStateFromStorage = () => {
 	const STATE = 'state';
 	try {
-		const stateStorage = localStorage.getItem(STATE);
-		if (stateStorage === null) {
+		const stateStorage = storage.get(STATE);
+		if (stateStorage === undefined) {
 			return {};
 		}
-		return JSON.parse(stateStorage);
+		return stateStorage;
 	} catch (error) {
 		return {};
 	}
@@ -15,8 +17,7 @@ export const setStateToStorage = (state: {
 	[index: string]: any;
 }) => {
 	try {
-		const stateData = JSON.stringify(state);
-		localStorage.setItem('state', stateData);
+		storage.set({ key: 'state', value: state });
 	} catch (error) {
 		console.error(error);
 	}
