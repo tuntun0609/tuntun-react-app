@@ -126,7 +126,9 @@ module.exports = {
 	},
 	plugins: [
 		new CleanWebpackPlugin(),
-		new ESLintPlugin(),
+		new ESLintPlugin({
+			extensions: ['js', 'jsx', 'ts', 'tsx'],
+		}),
 		new WebpackBar(),
 	],
 };
