@@ -1,8 +1,6 @@
 # tuntun-react-app
 自建react脚手架，开箱即用
 
-> 目前支持ts，但暂时未完成src目录下ts完整的模板
-
 ## 计划
 
 - [x] js、jsx
