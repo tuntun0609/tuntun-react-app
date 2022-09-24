@@ -30,6 +30,7 @@ module.exports = merge(common, {
 			template: resolvePath('../../public/index.html'),
 			filename: 'index.html',
 			favicon: resolvePath('../../public/favicon.ico'),
+			publicPath: '/',
 		}),
 		new FriendlyErrorsWebpackPlugin({
 			compilationSuccessInfo: {

@@ -22,6 +22,7 @@ module.exports = merge(common, {
 			favicon: resolvePath('../../public/favicon.ico'),
 			hash: true,
 			disableReactDevtools: true,
+			publicPath: '/',
 		}),
 	],
 	optimization: {
