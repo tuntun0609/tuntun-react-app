@@ -27,20 +27,18 @@ module.exports = merge(common, {
 	],
 	optimization: {
 		splitChunks: {
-			// chunks: 'all',
-			minChunks: 2,
+			chunks: 'all',
+			minChunks: 1,
 			cacheGroups: {
-				default: {
-					idHint: '',
+				defaultVendors: {
+					test: /[\\/]node_modules[\\/]/,
+					priority: -10,
 					reuseExistingChunk: true,
+				},
+				default: {
 					minChunks: 2,
 					priority: -20,
-				},
-				defaultVendors: {
-					idHint: 'vendors',
 					reuseExistingChunk: true,
-					test: /[\\/]node_modules[\\/]/i,
-					priority: -10,
 				},
 			},
 		},
